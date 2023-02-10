@@ -3,18 +3,23 @@ import numpy as np
 
 def basic():
     # Define plot
+    alphabet = []
+    start = ord('A')
     fig, ax = plt.subplots()     #Only one subplot
     start_num = 0
     end_num = 10
-    step = 0.01
+    step = 1
     
     x = (np.arange(start_num, end_num+step, step=step))
     y = 2*x+2
     plt.scatter(x, y)
 
-    names = ['A', 'B', 'C', 'D', 'E', 'F', 'G'] 
-    # for i, xy in enumerate(zip(x,y)):
-    #     ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
+    # names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'k'] 
+    for i in range(end_num+1):
+        alphabet.append(chr(start + i))
+
+    for i, xy in enumerate(zip(x,y)):
+        ax.annotate(text=f'{alphabet[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
 
     # Format plot, add label for axes
     plt.title('Scatter')

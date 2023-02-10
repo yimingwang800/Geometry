@@ -1,20 +1,31 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import string
 
 def basic():
     # Define plot
     fig, ax = plt.subplots()     #Only one subplot
     start_num = 0
-    end_num = 10
-    step = 0.01
-    
+    end_num = 25
+    step = 0.5
+    name = []
     x = (np.arange(start_num, end_num+step, step=step))
     y = 2*x+2
     plt.scatter(x, y)
 
-    names = ['A', 'B', 'C', 'D', 'E', 'F', 'G'] 
-    # for i, xy in enumerate(zip(x,y)):
-    #     ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
+    # names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'k'] 
+
+    
+    for i in range(end_num+1):
+        alphabet = string.ascii_uppercase[i]
+        for j in range (end_num+1):
+            alphabet += string.ascii_uppercase[j]
+            name.append(alphabet)
+            alphabet = alphabet[:-1]
+        alphabet = ''
+        
+    for i, xy in enumerate(zip(np.round(x,2), np.round(y,2))):
+        ax.annotate(text=f'{name[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
 
     # Format plot, add label for axes
     plt.title('Scatter')
