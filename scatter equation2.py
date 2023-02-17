@@ -6,15 +6,15 @@ def basic():
     fig, ax = plt.subplots()     #Only one subplot
     start_num = 0
     end_num = 10
-    step = 0.01
+    step = 0.1
     
     x = (np.arange(start_num, end_num+step, step=step))
     y = 2*x+2
     plt.scatter(x, y)
 
     names = ['A', 'B', 'C', 'D', 'E', 'F', 'G'] 
-    # for i, xy in enumerate(zip(x,y)):
-    #     ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
+    #for i, xy in enumerate(zip(x,y)):
+        #ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
 
     # Format plot, add label for axes
     plt.title('Scatter')

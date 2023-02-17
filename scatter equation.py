@@ -20,8 +20,8 @@ def basic():
     #                 textcoords='offset points', xytext=(10, 2))
     #     i = i + 1
 
-    # for i, xy in enumerate(zip(x,y)):
-    #     ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
+    #for i, xy in enumerate(zip(x,y)):
+    #    ax.annotate(text=f'{names[i]} {xy}', xy = xy, textcoords='offset points', xytext=(10, 2))
     
     # Format plot, add label for axes
     plt.title('Scatter')
