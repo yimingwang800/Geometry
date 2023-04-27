@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-def Hexagon_coordinates(x_center_list,y_center_list,num_of_hexagons):
+def Hexagon(x_center_list,y_center_list,num_of_hexagons):
     half_r = r/2
     x_value = math.sqrt(r**2 - half_r**2)
     x_coordinates = []
@@ -14,6 +14,7 @@ def Hexagon_coordinates(x_center_list,y_center_list,num_of_hexagons):
         x_coordinates.append(x)
         y_coordinates.append(y) 
         i+=1
+
 
     for i in range(num_of_hexagons):
        fig = plt.figure()
@@ -42,8 +43,15 @@ for i in range(num_of_hexagons):
     y_center_list.append(y)
 #num_of_hexagons =len(x_center_list)
 
+# for i in range(num_of_hexagons):
+#     x_coordinates, y_coordinates = Hexagon(x_center_list,y_center_list,r)  
+#     fig = plt.figure()
+#     ax = fig.add_subplot()
+#     ax.fill(x_coordinates, y_coordinates, color='r')
 
-Hexagon_coordinates(x_center_list,y_center_list,num_of_hexagons)   
+Hexagon(x_center_list,y_center_list,num_of_hexagons)  
+
+
 
 
 
