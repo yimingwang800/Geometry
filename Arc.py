@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 import matplotlib.patches as patches
+#from matplotlib.patches import Arc
+#from matplotlib import patches
 
 def ellipse():
     fig, ax = plt.subplots()
