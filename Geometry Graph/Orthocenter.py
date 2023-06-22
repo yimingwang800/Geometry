@@ -47,7 +47,8 @@ def Orthocenter(centroid_x, centroid_y,circumcenter_x, circumcenter_y):
     ax.annotate(f'{"O"} {xy}', xy = xy, textcoords='offset points', xytext=(5, -5))
     return Orthocenter_x, Orthocenter_y
 
-def get_ortho_graph_coordinates(triangle_x_coordinates_list,triangle_y_coordinates_list,Orthocenter_x, Orthocenter_y):    
+def get_ortho_graph_coordinates(Orthocenter_x, Orthocenter_y):    
+    global ortho_graph_x_values_list, ortho_graph_y_values_list
     for i in range(0,3):
         if(i==0):
             ortho_graph_x_values= triangle_x_coordinates_list[i] 
@@ -77,8 +78,6 @@ def get_ortho_graph_coordinates(triangle_x_coordinates_list,triangle_y_coordinat
             ortho_graph_y_values=(((triangle_y_coordinates_list[i-1]-triangle_y_coordinates_list[i-2])**2)*Orthocenter_y+(triangle_x_coordinates_list[i-1]-triangle_x_coordinates_list[i-2])*(triangle_y_coordinates_list[i-1]-triangle_y_coordinates_list[i-2])*Orthocenter_x+(triangle_y_coordinates_list[i-1]+triangle_y_coordinates_list[i-2])*(triangle_x_coordinates_list[i-1]-triangle_x_coordinates_list[i-2])*triangle_x_coordinates_list[i-1]-(triangle_x_coordinates_list[i-1]-triangle_x_coordinates_list[i-2])*(triangle_x_coordinates_list[i-1]+triangle_x_coordinates_list[i-2])*triangle_y_coordinates_list[i-1])/((triangle_x_coordinates_list[i-1]-triangle_x_coordinates_list[i-2])**2+(triangle_y_coordinates_list[i-1]-triangle_y_coordinates_list[i-2])**2)
             ortho_graph_y_values_list.append(ortho_graph_y_values)
 
-    return ortho_graph_x_values_list, ortho_graph_y_values_list
-
 def plot_Graph():
     Triangle()
     
@@ -88,7 +87,7 @@ def plot_Graph():
 
     Orthocenter_x, Orthocenter_y = Orthocenter(centroid_x, centroid_y,circumcenter_x, circumcenter_y)
 
-    x,y= get_ortho_graph_coordinates(triangle_x_coordinates_list,triangle_y_coordinates_list,Orthocenter_x, Orthocenter_y)
+    get_ortho_graph_coordinates(Orthocenter_x, Orthocenter_y)
     ax.fill(ortho_graph_x_values_list, ortho_graph_y_values_list, color = 'none', edgecolor='black')
 
 

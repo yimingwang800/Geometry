@@ -31,7 +31,8 @@ def Circumcenter():
     ax.annotate(f'{"C"} {xy}', xy = xy, textcoords='offset points', xytext=(5, -5))
     return circumcenter_x, circumcenter_y
 
-def get_centers(triangle_x_coordinates_list,triangle_y_coordinates_list,circumcenter_x, circumcenter_y):    
+def get_centers(circumcenter_x, circumcenter_y):    
+    global median_x_values_list, median_y_values_list
     for i in range(0,3):
         if(i==0):
             median_x_values= circumcenter_x 
@@ -61,8 +62,6 @@ def get_centers(triangle_x_coordinates_list,triangle_y_coordinates_list,circumce
             median_y_values=(triangle_y_coordinates_list[i-1]+triangle_y_coordinates_list[i-2])/2
             median_y_values_list.append(median_y_values)      
 
-    return median_x_values_list, median_y_values_list
-
 def Circle(circumcenter_x,circumcenter_y):
     radius= math.sqrt((circumcenter_x-triangle_x_coordinates_list[0])**2 + (circumcenter_y-triangle_y_coordinates_list[0])**2) 
     circle=plt.Circle((circumcenter_x,circumcenter_y),radius, fill=False)
@@ -74,7 +73,7 @@ def plot_Graph():
    # Circumcenter()
     circumcenter_x, circumcenter_y =Circumcenter()
 
-    x,y= get_centers(triangle_x_coordinates_list,triangle_y_coordinates_list,circumcenter_x, circumcenter_y)
+    get_centers(circumcenter_x, circumcenter_y)
     ax.fill(median_x_values_list, median_y_values_list, color = 'none', edgecolor='black')
 
     Circle(circumcenter_x,circumcenter_y)
